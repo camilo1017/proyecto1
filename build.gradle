@@ -18,6 +18,7 @@ apply plugin: 'jacoco'
 group = 'com.proyecto'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -31,12 +32,18 @@ dependencies {
 	runtime('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+jar{
+	manifest{
+		attributes 'Implementation-title':'proyecto1',
+		'Implementation-version':version
+	}
+}
+
 test {
  	jacoco {
 		append = false
-		append = true  // Si se establece en verdadero y ya existe el archivo de
-		// datos de la ejecución, los datos de cobertura se anexan al
-		// archivo existente
 		destinationFile = file("build/jacoco/jacocoTest.exec")
 	}
+	reports.junitXml.destination = file("jacoco/test-results")
 }
