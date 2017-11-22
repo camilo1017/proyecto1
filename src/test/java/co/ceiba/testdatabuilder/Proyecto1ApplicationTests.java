@@ -1,4 +1,4 @@
-package com.proyecto.proyecto1;
+package co.ceiba.testdatabuilder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

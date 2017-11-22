@@ -1,4 +1,4 @@
-package com.proyecto.proyecto1;
+package co.ceiba.domain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

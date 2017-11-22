@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'jacoco'
 
 group = 'com.proyecto'
 version = '0.0.1-SNAPSHOT'
@@ -29,4 +30,13 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+test {
+ 	jacoco {
+		append = false
+		append = true  // Si se establece en verdadero y ya existe el archivo de
+		// datos de la ejecución, los datos de cobertura se anexan al
+		// archivo existente
+		destinationFile = file("build/jacoco/jacocoTest.exec")
+	}
 }
