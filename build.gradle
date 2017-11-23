@@ -33,3 +33,10 @@ dependencies {
 	testCompile('io.rest-assured:rest-assured:3.0.5')
 	testCompile 'junit:junit:4.12'
 }
+test {
+ 	jacoco {
+		append = false
+		destinationFile = file("build/jacoco/jacocoTest.exec")
+	}
+	reports.junitXml.destination = file("jacoco/test-results")
+}
